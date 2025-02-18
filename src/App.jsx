@@ -1,9 +1,11 @@
-import React from 'react'
+import { useState } from 'react'
 import './App.css'
 
-const App = () => {
+function App() {
+  const [count, setCount] = useState(0)
+
   return (
-    <div>App</div>
+   <div>News APp</div>
   )
 }
 
