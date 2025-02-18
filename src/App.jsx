@@ -1,9 +1,12 @@
 import React from 'react'
 import './App.css'
+import Login from './authpages/login'
 
 const App = () => {
   return (
-    <div>App</div>
+    <>
+      <Login/>
+    </>
   )
 }
 
