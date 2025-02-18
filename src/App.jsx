@@ -3,7 +3,7 @@ import './App.css'
 
 const App = () => {
   return (
-    <div className='text-2xl bg-blue-400'>App</div>
+    <div className='text-2xl bg-red-400'>App</div>
   )
 }
 
