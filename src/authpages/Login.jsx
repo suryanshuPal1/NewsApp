@@ -4,7 +4,7 @@ import loginImg from '../assets/loginPageImages/loginImg.png'
 const Login = () => {
   return (
     <div className='flex flex-col-reverse items-center justify-center md:flex-row md:flex px-5 h-screen'>
-        <div className="bg-white rounded-lg shadow-lg border border-[#878787] lg:w-[28%] border-zinc-400 m-4">
+        <div className="bg-white rounded-lg shadow-lg border border-[#878787] min-w-100 lg:w-[28%] border-zinc-400 m-4">
             <div className="p-6 space-y-4 sm:p-8">
                 <p className='py-2 text-xl text-[#282828]'>Welcome back !</p>
                     <h1 className="text-xl mb-1 font-semibold md:text-2xl">
@@ -37,16 +37,16 @@ const Login = () => {
                               </div>
                               <a href="#" className="text-xs font-medium text-zinc-400 hover:underline">Forgot password?</a>
                         </div>
-                        <button type="submit" className="lg:mb-6 md:mb-3 mb-2 w-full text-white bg-[#101450] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800">Sign in</button>
+                        <button type="submit" className="lg:mb-6 md:mb-3 mb-2 w-full text-white bg-[#101450] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800">Login</button>
                         <div>
                         <p className="text-sm font-light text-gray-500 text-gray-400 flex justify-center">
-                              Don’t have an account yet? <a href="#" className="font-medium hover:underline">Register</a>
+                              Don’t have an Account ? <a href="#" className="font-medium hover:underline text-[#101450]">Register</a>
                         </p>
                         </div>
                     </form>
                 </div>
             </div>
-        <div className='md:w-[40%] w-[65%] lg:w-100 lg:ml-30'><img src={loginImg} alt=""/></div>
+        <div className='hidden lg:block lg:w-90 lg:ml-20'><img src={loginImg} alt=""/></div>
     </div>
   )
 }
