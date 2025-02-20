@@ -1,7 +1,11 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import loginImg from '../assets/loginPageImages/loginImg.png'
+import  EyeIcon from '../assets/loginPageImages/eye-open.png'
+import  EyeOffIcon from '../assets/loginPageImages/eye.png'
 
 const Login = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  
   return (
     <div className='flex flex-col-reverse items-center justify-center md:flex-row md:flex px-5 h-screen'>
         <div className="bg-white rounded-lg shadow-lg border border-[#878787] min-w-100 lg:w-[28%] border-zinc-400 m-4">
@@ -18,12 +22,29 @@ const Login = () => {
                               className="border lg:mb-6 mb-[2%] border-gray-300  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 border-gray-600  placeholder-gray-400 focus:ring-blue-500  focus:border-blue-500" placeholder="Enter your username" required="">
                               </input>
                           </div>
-                          <div>
-                              <label for="password" className="block mb-2 text-sm text-zinc-800 font-medium">Password</label>
-                              <input type="password" name="password" id="password" placeholder="Enter your password" 
-                              className=" border lg:mb-6 mb-[2%] rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 border-gray-600  placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500" required="">
-                              </input>
-                          </div>
+                          <div className='lg:mb-6 mb-[2%]'>
+                             <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-800">
+                                    Password
+                              </label>
+                                <div className="relative">
+                                  <input
+                                    type={showPassword ? "text" : "password"}
+                                    name="password"
+                                    id="password"
+                                     className="border border-gray-300 rounded-lg w-full p-2.5 pr-10 focus:ring-blue-500 focus:border-blue-500"
+                                    placeholder="Enter your password"
+                                    required
+                                  />
+                                  {/* Eye Toggle Button*/}
+                                  <button
+                                     type="button"
+                                     onClick={() => setShowPassword(!showPassword)}
+                                     className="absolute inset-y-0 right-3 flex items-center text-gray-500"
+                                  >
+                                     {showPassword ? <img src={EyeOffIcon} className="w-6" /> : <img src={EyeIcon} className="w-6" />}
+                                  </button>
+                                </div>
+                              </div> 
                           <div className="flex items-center justify-between mb-1.5 lg:mb-5 md:mb-2.5">
                               <div className="flex items-start ">
                                   <div className="flex items-center h-5">
@@ -44,8 +65,8 @@ const Login = () => {
                         </p>
                         </div>
                     </form>
-                </div>
-            </div>
+              </div>
+        </div>
         <div className='hidden lg:block lg:w-90 lg:ml-20'><img src={loginImg} alt=""/></div>
     </div>
   )

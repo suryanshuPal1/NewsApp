@@ -20,11 +20,10 @@ const ForgetPassword = () => {
                                   className="border lg:mb-6 mb-[2%] border-gray-300  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 border-gray-600  placeholder-gray-400 focus:ring-blue-500  focus:border-blue-500" placeholder="arun1416@gmail.com" required="">
                                   </input>
                               </div>
-                              <div className="flex items-center justify-end mb-1.5 lg:mb-5 md:mb-2.5">
-                                  {/* <a href="#" className="text-xs font-medium text-zinc-400 hover:underline">LogIn</a> */}
-                                  <p className="text-sm font-light text-gray-500 text-gray-400 flex justify-center">
-                                  Go Back to<a href="#" className="pl-1 text-[#101450] font-medium hover:underline">LOGIN</a>
-                            </p>
+                            <div className="flex items-center justify-end mb-1.5 lg:mb-5 md:mb-2.5">
+                                <p className="text-sm font-light text-gray-500 text-gray-400 flex justify-center">
+                                  Go Back to<a href="#" className="pl-1 text-[#101450] font-medium hover:underline">Login</a>
+                                </p>
                             </div>
                             <button type="submit" className="lg:mb-6 md:mb-3 mb-2 w-full text-white bg-[#101450] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800">Login</button>
                             <div>
