@@ -1,5 +1,3 @@
-
-import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Logo from './Components/Logo/Logo';
@@ -9,6 +7,8 @@ import Technology from './Pages/Technology/Technology';
 import TopVideos from './Pages/TopVideos/TopVideos';
 import TopNews from './Pages/TopNews/TopNews';
 import DailyReports from './Pages/DailyReports/DailyReports';
+import './App.css';
+
 
 function App() {
 
@@ -18,10 +18,10 @@ function App() {
       <Logo />
       <Navbar />
       <Hero />
-        <DailyReports />
-        <Technology />  
-        <TopVideos />
-        <TopNews />
+      <DailyReports />
+      <Technology />  
+      <TopVideos />
+      <TopNews />
       <Footer />
    </Router>
    
