@@ -1,5 +1,5 @@
 import React from "react";
-import panaLogo from "../assets/pana.png"; // Ensure correct path
+import panaLogo from "../../assets/signUpPageImages/pana.png"; // Ensure correct path
 
 const Signup = () => {
   return (

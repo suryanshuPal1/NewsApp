@@ -1,5 +1,5 @@
 import React from "react";
-import thankuLogo from "../assets/thanku.png"
+import thankuLogo from "../../assets/signUpPageImages/thanku.png"
 
 const Verification =()=>{
     return(

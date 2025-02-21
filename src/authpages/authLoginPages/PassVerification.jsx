@@ -1,5 +1,5 @@
 import React from 'react'
-import passVeri from '../assets/loginPageImages/pass.png'
+import passVeri from '../../assets/loginPageImages/pass.png'
 
 
 const PassVerification = () => {

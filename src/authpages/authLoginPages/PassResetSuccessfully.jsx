@@ -1,5 +1,5 @@
 import React from 'react'
-import succesPassReset from '../assets/loginPageImages/successPassReset.png'
+import succesPassReset from '../../assets/loginPageImages/successPassReset.png'
 
 const PassResetSuccessfully = () => {
   return (

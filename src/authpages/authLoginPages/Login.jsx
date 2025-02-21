@@ -1,7 +1,7 @@
 import React,{ useState } from 'react'
-import loginImg from '../assets/loginPageImages/loginImg.png'
-import  EyeIcon from '../assets/loginPageImages/eye-open.png'
-import  EyeOffIcon from '../assets/loginPageImages/eye.png'
+import loginImg from '../../assets/loginPageImages/loginImg.png'
+import  EyeIcon from '../../assets/loginPageImages/eye-open.png'
+import  EyeOffIcon from '../../assets/loginPageImages/eye.png'
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);

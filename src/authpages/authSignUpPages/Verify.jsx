@@ -1,7 +1,7 @@
 import React from "react"; 
-import editLogo from "../assets/edit.png"
-import callLogo from "../assets/call.png"
-import mailLogo from "../assets/mail.png"
+import editLogo from "../../assets/signUpPageImages/edit.png"
+import callLogo from "../../assets/signUpPageImages/call.png"
+import mailLogo from "../../assets/signUpPageImages/mail.png"
 
 
 const Verify =()=>{

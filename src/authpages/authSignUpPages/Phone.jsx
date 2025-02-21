@@ -1,5 +1,5 @@
 import React from "react";
-import undrawLogo from "../assets/undraw.png"
+import undrawLogo from "../../assets/signUpPageImages/undraw.png"
 const Phone =()=>{
     return(
         <div className="flex h-screen items-center justify-center bg-gray-100 ">
