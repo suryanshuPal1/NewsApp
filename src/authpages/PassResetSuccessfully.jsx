@@ -3,11 +3,11 @@ import succesPassReset from '../assets/loginPageImages/successPassReset.png'
 
 const PassResetSuccessfully = () => {
   return (
-    <div className='flex flex-col items-center justify-center min-w-100 px-5 h-screen'>
-        <div className='lg:w-90 lg:ml-20 mb-10'>
-            <img src={succesPassReset} alt=""/>
+    <div className='flex flex-col w-[100%] items-center justify-center lg:h-screen md:h-screen h-full'>
+        <div className='m-4'>
+            <img src={succesPassReset} alt="" className='size-70'/>
         </div>
-        <div className='lg:w-90 lg:ml-20 flex flex-col items-center justify-center' >
+        <div className='lg:w-100 flex flex-col items-center justify-center p-4 m-4' >
             <div>
             <h1 className="text-xl mb-1 font-semibold md:text-2xl text-center">
                 Your password has been successfully reset!
