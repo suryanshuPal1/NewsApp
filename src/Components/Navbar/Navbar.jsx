@@ -13,15 +13,15 @@ export default function Navbar() {
 
   return (
     <div className='relative h-15 md:h-20 bg-white shadow-md'>
-      <div className='flex justify-between md:justify-center  items-center mx-auto px-4'>
+      <div className='flex justify-between md:justify-center items-center mx-auto px-4'>
         <div className='relative flex items-center justify-between gap-4 p-2'>
           <FaRegUserCircle className='text-2xl' />
-          <IoIosSearch className='absolute left-1/4 transform -translate-x-1/2 text-2xl' />
           <div className=''>
+          <IoIosSearch className='absolute left-1/5 transform -translate-x-1/5 top-1/2 -translate-y-1/2 text-2xl' />
           <input
             type="text"
-            placeholder="      Search Latest News Updates, Weather, Entertainment & Many More..."
-            className="w-full pl-10 pr-4 py-1 rounded-md text-black border border-gray-300 focus:outline-none focus:border-blue-500"
+            placeholder="Search Latest News Updates, Weather, Entertainment & Many More..."
+            className=" md:w-[870px] w-[100%] px-7 py-1 rounded-md text-black border border-gray-300 focus:outline-none focus:border-blue-500"
           />
           </div>
         </div>

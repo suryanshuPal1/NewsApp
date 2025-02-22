@@ -58,6 +58,8 @@ const technologyNews = [
   },
 ];
 
+
+
 function useWindowSize() {
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
