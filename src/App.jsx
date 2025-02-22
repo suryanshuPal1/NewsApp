@@ -5,6 +5,8 @@ import ForgetPassword from './authpages/ForgetPassword'
 import PassVerification from './authpages/PassVerification'
 import ResetPass from './authpages/ResetPass'
 import PassResetSuccessfully from './authpages/PassResetSuccessfully'
+import Phone from './authpages/Phone'
+import Email from './authpages/Email'
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
         <PassVerification/>
         <ResetPass/>
         <PassResetSuccessfully/>
+        <Phone/>
+        <Email/>
     </>
   )
 }
