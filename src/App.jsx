@@ -11,6 +11,9 @@ import DailyReport from './PagesOfHome/DailyReport';
 import EditorPack from './PagesOfHome/EditorPack';
 import MostRead from './PagesOfHome/MostRead';
 import TopNews from './PagesOfHome/TopNews';
+import Crime from './Components/Home/Crime';
+import InnerCrime from './Components/Home/InnerCrime';
+import Budget from './Components/Home/Budget';
 
 function App() {
   return (
@@ -30,6 +33,9 @@ function App() {
           <Route path="/editor-pack" element={<EditorPack />}/>
           <Route path="/most-read" element={<MostRead />}/>
           <Route path="/top-news" element={<TopNews />}/>
+          <Route path="/crime" element={<Crime />} />
+          <Route path="/innercrime" element={<InnerCrime />} />
+          <Routes path="/budget-2025" element={<Budget />} />
 
         </Routes>
 
