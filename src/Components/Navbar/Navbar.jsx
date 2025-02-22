@@ -4,10 +4,42 @@ import { MdOutlineMenu, MdClose } from 'react-icons/md';
 import { IoIosSearch } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 
-export default function Navbar() {
+
+function Navbar() {
+  const links = [
+    {title: "Budget 2025",
+      links: "/budget-2025",
+    },
+    {title: "Crime",
+      links: "/crime",
+    },
+    {title: "Accidents",
+      links: "/accident",
+    },
+    {title: "Sports",
+      links: "/sports",
+    },
+    {title: "Politics",
+      links: "/politics",
+    },
+    {title: "Election",
+      links: "/election",
+    },
+    {title: "Culture",
+      links: "/culture",
+    },
+    {title: "Entertainment",
+      links: "/entertainment",
+    },
+    {title: "International",
+      links: "/international",
+    },
+    {title: "Weather",
+      links: "/weather",
+    },
+  ]
   const [isOpen, setIsOpen] = useState(false); // State for hamburger menu
 
-  // Hamburger menu toggle function
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -21,7 +53,7 @@ export default function Navbar() {
           <div className=''>
           <input
             type="text"
-            placeholder="      Search Latest News Updates, Weather, Entertainment & Many More..."
+            placeholder="Search Latest News Updates, Weather, Entertainment & Many More..."
             className="w-full pl-10 pr-4 py-1 rounded-md text-black border border-gray-300 focus:outline-none focus:border-blue-500"
           />
           </div>
@@ -33,11 +65,11 @@ export default function Navbar() {
       </div>
       {/* Desktop Navigation Links */}
       <div className={`hidden md:flex justify-center gap-8 text-sm font-semibold bg-white p-2`}>
-        {["Budget 2025", "Crime", "Accidents", "Sports", "Politics","Election", "Culture", "Entertainment", "International", "Weather"].map(
-          (category) => (
-            <span key={category} className="cursor-pointer hover:text-blue-600">
-              {category}
-            </span>
+        {links.map(
+          (category ,id) => (
+            <Link to={category.links} key={id} className="cursor-pointer hover:text-blue-600">
+              {category.title}
+            </Link>
           )
         )}
       </div>
@@ -56,3 +88,5 @@ export default function Navbar() {
     </div>
   );
 }
+export default Navbar;
+

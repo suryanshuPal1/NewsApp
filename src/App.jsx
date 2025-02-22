@@ -2,11 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Logo from './Components/Logo/Logo';
 import Footer from './Components/Footer/Footer';
-import Hero from './Pages/Hero/Hero';
-import Technology from './Pages/Technology/Technology';
-import TopVideos from './Pages/TopVideos/TopVideos';
-import TopNews from './Pages/TopNews/TopNews';
-import DailyReports from './Pages/DailyReports/DailyReports';
+import MainHomePage from './Pages/MainHomePage'
+import Budget from './Components/Home/Budget';
+import Technology from './PagesOfHome/Technology';
 import './App.css';
 
 
@@ -16,13 +14,20 @@ function App() {
     <div className="bg-gray-100 min-h-screen">
       <Logo />
       <Navbar />
-    <Router>
-      <Hero />
-      <DailyReports />
-      <Technology />  
-      <TopVideos />
-      <TopNews />
-   </Router>
+    
+      <Routes>
+        {/* pages of navbar */}
+        <Route path='/' element={<MainHomePage/>} />
+        <Route path='/budget-2025' element={<Budget/>}/>
+
+
+
+        {/* pages of home   */}
+        <Route path='/technology' element={<Technology/>}/>
+      </Routes>
+
+      
+  
    <Footer />
    
 
