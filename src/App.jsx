@@ -14,16 +14,16 @@ function App() {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-    <Router>
       <Logo />
       <Navbar />
+    <Router>
       <Hero />
       <DailyReports />
       <Technology />  
       <TopVideos />
       <TopNews />
-      <Footer />
    </Router>
+   <Footer />
    
 
        

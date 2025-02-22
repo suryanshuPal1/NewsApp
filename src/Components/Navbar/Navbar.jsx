@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { MdOutlineMenu, MdClose } from 'react-icons/md'; 
 import { IoIosSearch } from 'react-icons/io';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false); // State for hamburger menu
