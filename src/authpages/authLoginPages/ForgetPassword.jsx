@@ -1,5 +1,5 @@
 import React from 'react'
-import ForgetPass from '../assets/loginPageImages/ForgetPass.png'
+import ForgetPass from '../../assets/loginPageImages/ForgetPass.png'
 
 
 const ForgetPassword = () => {
