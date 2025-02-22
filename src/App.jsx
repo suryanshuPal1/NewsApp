@@ -17,7 +17,6 @@ const App = () => {
       <Signup/>
       <Verify/>
       <Vertification/>
-      
     </>
   )
 }
