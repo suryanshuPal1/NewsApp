@@ -1,9 +1,11 @@
 import React from 'react'
 import image from '../../assets/TopNews/image.png';
+import { Link } from 'react-router-dom';
 
 const newsSections = [
     {
       title: "Top News",
+      link: "/top-news",
       articles: [
         {
           headline:
@@ -14,6 +16,7 @@ const newsSections = [
     },
     {
       title: "Editor's Pick",
+      link: "/editor-pack",
       articles: [
         {
           headline:
@@ -24,6 +27,7 @@ const newsSections = [
     },
     {
       title: "Most Read",
+      link: "/most-read",
       articles: [
         {
           headline:
@@ -42,7 +46,7 @@ export default function TopNews() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {newsSections.map((section, i) => (
           <div key={i} className="bg-white shadow-md rounded-lg p-4">
-            <h2 className="text-xl font-bold mb-4">{section.title}</h2>
+            <Link to={section.link}> <h2 className="text-xl font-bold mb-4">{section.title}</h2></Link>
             {section.articles.map((article, j) => (
               <div key={j}>
                 <img

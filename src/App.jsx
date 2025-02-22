@@ -7,10 +7,13 @@ import Budget from './Components/Home/Budget';
 import Technology from './PagesOfHome/Technology';
 
 import './App.css';
+import DailyReport from './PagesOfHome/DailyReport';
+import EditorPack from './PagesOfHome/EditorPack';
+import MostRead from './PagesOfHome/MostRead';
+import TopNews from './PagesOfHome/TopNews';
 
 function App() {
   return (
-    <Router>
       <div className="bg-gray-100 min-h-screen">
         <Logo />
         <Navbar />
@@ -19,12 +22,19 @@ function App() {
           {/* Pages of Navbar */}
           <Route path="/" element={<MainHomePage />} />
           <Route path="/budget-2025" element={<Budget />} />
-          <Route path="/technology" element={<Technology />} />
+
+
+          {/* pages of home */}
+          <Route path="/technology" element={<Technology />}/>
+          <Route path="/daily-report" element={<DailyReport />}/>
+          <Route path="/editor-pack" element={<EditorPack />}/>
+          <Route path="/most-read" element={<MostRead />}/>
+          <Route path="/top-news" element={<TopNews />}/>
+
         </Routes>
 
-        <Footer />
+        <Footer/>
       </div>
-    </Router>
   );
 }
 
