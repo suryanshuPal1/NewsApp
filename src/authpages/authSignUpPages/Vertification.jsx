@@ -12,7 +12,7 @@ const Verification =()=>{
             <div className="mt-6">
                 <p className="text-center text-gray-600">Your Verification has been done successfully</p>
             </div>
-            <div className="mt-8 ">
+            <div className="mt-8">
                 <button className=" ml-[550px] bg-blue-950 text-white rounded-md hover:bg-blue-700 transition w-[450px] h-[50px]">Continue</button>
             </div>
         </div>
