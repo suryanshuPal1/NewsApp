@@ -1,22 +1,27 @@
-import React from "react";
-import thankuLogo from "../../assets/signUpPageImages/thanku.png"
+import React from 'react'
+import succesPassReset from '../../assets/loginPageImages/successPassReset.png'
 
-const Verification =()=>{
-    return(
-      <div className="">
-        <div className="flex justify-center p-8">
-            <img src={thankuLogo} alt="thanku Logo" className=" "/>
+const Verification = () => {
+  return (
+    <div className='flex flex-col w-[100%] items-center justify-center lg:h-screen md:h-screen h-full'>
+        <div className='m-4'>
+            <img src={succesPassReset} alt="" className='size-70'/>
         </div>
-        <div className="mt-6">
-            <h2 className="text-center font-bold text-3xl text-[#0A0E4B] ">Verification Successful</h2>
-            <div className="mt-6">
-                <p className="text-center text-gray-600">Your Verification has been done successfully</p>
+        <div className='lg:w-100 flex flex-col items-center justify-center p-4 m-4' >
+            <div>
+            <h1 className="text-xl mb-1 font-semibold md:text-2xl text-center">
+            Verification Successful
+            </h1>
+            <p className='text-sm text-[#80807F] text-center mb-10'>Your Verification has been done successfully</p>
             </div>
-            <div className="mt-8">
-                <button className=" ml-[550px] bg-blue-950 text-white rounded-md hover:bg-blue-700 transition w-[450px] h-[50px]">Continue</button>
-            </div>
+            <button type="submit" className="lg:mb-6 md:mb-3 mb-2 w-full text-white bg-[#101450] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800">
+            Continue
+            </button>
         </div>
-      </div>
-    )
+    </div>
+  )
 }
-export default Verification;
+
+export default Verification
+
+
