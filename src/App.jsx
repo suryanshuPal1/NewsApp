@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Logo from './Components/Logo/Logo';
 import Footer from './Components/Footer/Footer';
@@ -14,6 +14,11 @@ import TopNews from './PagesOfHome/TopNews';
 import Crime from './Components/Home/Crime';
 import InnerCrime from './Components/Home/InnerCrime';
 import Login from './authpages/authLoginPages/Login';
+import Signup from './authpages/authSignUpPages/Signup';
+import ResetPass from './authpages/authLoginPages/ResetPass';
+import PassVerification from './authpages/authLoginPages/PassVerification';
+import ForgetPassword from './authpages/authLoginPages/ForgetPassword';
+
 
 import AboutUs from './Pages/AboutUs';
 import TrendingTopics from './Pages/TrendingTopics';
@@ -31,6 +36,7 @@ function App() {
       <Routes>
         {/* Login Page */}
         <Route path="/log-in" element={<Login />} />
+        {/* <Route path="/sign-up" element={<Signup />} /> */}
 
         {/* Other Pages */}
         <Route path="/" element={<MainHomePage />} />
@@ -48,6 +54,10 @@ function App() {
 
       {/* Hide Footer when on Login Page */}
       {!isLoginPage && <Footer />}
+
+      {/* <Signup/> */}
+      {/* <Login/> */}
+      {/* <ForgetPassword/> */}
     </div>
   );
 }
