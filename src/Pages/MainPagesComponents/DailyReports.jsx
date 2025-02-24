@@ -4,6 +4,7 @@ import image2 from '../../assets/DailyReports/image-2.png';
 import image3 from '../../assets/DailyReports/image-3.png';
 import image4 from '../../assets/DailyReports/image-4.png';
 import image5 from '../../assets/DailyReports/image-5.png';
+import { Link } from 'react-router-dom';
 
 const dailyNews = [
   {
@@ -99,7 +100,7 @@ export default function DailyReports() {
 
   return (
     <div className="container mx-auto px-6 py-8 bg-gray-100">
-      <h2 className="text-2xl font-bold mb-4">Daily Reports</h2>
+      <Link to='/daily-report' className="text-2xl font-bold mb-4">Daily Reports</Link>
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
         {/* Render all articles in desktop mode */}
         {width >= 768
