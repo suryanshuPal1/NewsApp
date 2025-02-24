@@ -35,7 +35,7 @@ const ForgetPassword = () => {
                     </div>
                 </div>
             <div className='m-4'><img src={ForgetPass} alt="" className='size-70'/></div>
-        </div>
+    </div>
   )
 }
 

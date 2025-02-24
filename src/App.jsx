@@ -15,6 +15,10 @@ import Crime from './Components/Home/Crime';
 import InnerCrime from './Components/Home/InnerCrime';
 import Login from './authpages/authLoginPages/Login';
 import Signup from './authpages/authSignUpPages/Signup';
+import ResetPass from './authpages/authLoginPages/ResetPass';
+import PassVerification from './authpages/authLoginPages/PassVerification';
+import ForgetPassword from './authpages/authLoginPages/ForgetPassword';
+
 
 function App() {
   const location = useLocation(); // Get current route
@@ -29,7 +33,7 @@ function App() {
       <Routes>
         {/* Login Page */}
         <Route path="/log-in" element={<Login />} />
-        <Route path="/sign-up" element={<Signup />} />
+        {/* <Route path="/sign-up" element={<Signup />} /> */}
 
         {/* Other Pages */}
         <Route path="/" element={<MainHomePage />} />
@@ -46,7 +50,9 @@ function App() {
       {/* Hide Footer when on Login Page */}
       {!isLoginPage && <Footer />}
 
-      <Signup/>
+      {/* <Signup/> */}
+      {/* <Login/> */}
+      {/* <ForgetPassword/> */}
     </div>
   );
 }
