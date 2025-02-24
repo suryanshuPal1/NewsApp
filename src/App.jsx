@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Logo from './Components/Logo/Logo';
 import Footer from './Components/Footer/Footer';
@@ -14,6 +14,7 @@ import TopNews from './PagesOfHome/TopNews';
 import Crime from './Components/Home/Crime';
 import InnerCrime from './Components/Home/InnerCrime';
 import Login from './authpages/authLoginPages/Login';
+import Signup from './authpages/authSignUpPages/Signup';
 
 function App() {
   const location = useLocation(); // Get current route
@@ -27,7 +28,8 @@ function App() {
 
       <Routes>
         {/* Login Page */}
-        <Route path="/log-in" element={<Login />} />
+        <Route path="/log-ind" element={<Login />} />
+        <Route path="/log-in" element={<Signup />} />
 
         {/* Other Pages */}
         <Route path="/" element={<MainHomePage />} />
@@ -43,6 +45,8 @@ function App() {
 
       {/* Hide Footer when on Login Page */}
       {!isLoginPage && <Footer />}
+
+      <Signup/>
     </div>
   );
 }
