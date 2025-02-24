@@ -4,7 +4,7 @@ import Slide from '../Components/Card/Slide';
 
 const Technology = () => {
   const [budgetdata, setBudgetData] = useState();
-useEffect(() => {
+  useEffect(() => {
       const fetch = async()=> {
         const response = await axios.get('https://news-portal-backend-code-a5rg.onrender.com/api/v1/news/getallnews')
         console.log(response.data)
