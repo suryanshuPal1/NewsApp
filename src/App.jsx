@@ -1,4 +1,6 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
+import {useDispatch,useSelector} from "react-redux"
+
 import Navbar from './Components/Navbar/Navbar';
 import Logo from './Components/Logo/Logo';
 import Footer from './Components/Footer/Footer';
@@ -17,8 +19,19 @@ import Login from './authpages/authLoginPages/Login';
 import Signup from './authpages/authSignUpPages/Signup';
 
 function App() {
-  const location = useLocation(); // Get current route
-  
+  const dispatch = useDispatch();
+  const role = useSelector((state) => state.auth.role) 
+  // useEffect(()=>{
+  //   if(
+  //     localStorage.getItem("id") &&
+  //     localStorage.getItem("token") &&
+  //     localStorage.getItem("role") 
+  //   ){
+  //     dispatch(authActions.login());
+  //     dispatch(authActions.changeRole(localStorage.getItem("role")));
+  //   }
+  // },[]) 
+  const location = useLocation(); 
   const isLoginPage = location.pathname === "/log-in"; // if login page is on
 
   return (
