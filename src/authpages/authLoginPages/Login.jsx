@@ -4,8 +4,6 @@ import axios from "axios";
 import loginImg from '../../assets/loginPageImages/loginImg.png'
 import  EyeIcon from '../../assets/loginPageImages/eye-open.png'
 import  EyeOffIcon from '../../assets/loginPageImages/eye.png'
-// import {useDispatch} from "react-redux"
-// import {authActions} from "../../store/auth"
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
@@ -17,6 +15,8 @@ const Login = () => {
     password:"",
   })
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const change = (e) => {
     const {name, value} = e.target
     setValues({...values, [name]: value})
