@@ -32,7 +32,7 @@ function App() {
 
       <Routes>
         {/* Login Page */}
-        <Route path="/log-inxx" element={<Login />} />
+        <Route path="/log-in" element={<Login />} />
         {/* <Route path="/sign-up" element={<Signup />} /> */}
 
         {/* Other Pages */}
