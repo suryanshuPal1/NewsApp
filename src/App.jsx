@@ -28,8 +28,8 @@ function App() {
 
       <Routes>
         {/* Login Page */}
-        <Route path="/log-ind" element={<Login />} />
-        <Route path="/log-in" element={<Signup />} />
+        <Route path="/log-in" element={<Login />} />
+        <Route path="/sign-up" element={<Signup />} />
 
         {/* Other Pages */}
         <Route path="/" element={<MainHomePage />} />
