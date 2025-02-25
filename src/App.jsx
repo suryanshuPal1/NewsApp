@@ -54,6 +54,7 @@ function App() {
           <Route path="/budget-2025" element={<Budget />} />
         </>):(<>
           <Route path="/log-in" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/sign-up" element={<Signup />} />
           
