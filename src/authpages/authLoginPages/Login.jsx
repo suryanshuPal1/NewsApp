@@ -1,5 +1,6 @@
 import React,{ useState } from 'react'
 import axios from "axios";
+import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import loginImg from '../../assets/loginPageImages/loginImg.png'
 import  EyeIcon from '../../assets/loginPageImages/eye-open.png'
@@ -100,12 +101,12 @@ const Login = () => {
                                     <label for="remember " >Remember me</label>
                                   </div>
                               </div>
-                              <a href="#" className="text-xs font-medium text-zinc-400 hover:underline">Forgot password?</a>
+                              <Link to='/forget-password' className="text-xs font-medium text-zinc-400 hover:underline">Forgot password?</Link>
                         </div>
                         <button type="submit" className="my-4 lg:mb-6 md:mb-3 mb-2 w-full text-white bg-[#101450] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800">Login</button>
                         <div>
-                        <p className="text-sm font-light text-gray-500 text-gray-400 flex justify-center">
-                              Don’t have an Account ? <a href="#" className="font-medium hover:underline text-[#101450] ">Register</a>
+                        <p className="text-sm font-light flex justify-center">
+                              Don’t have an Account ? <Link to="/sign-up" className="font-medium hover:underline text-[#101450] ">Register</Link>
                         </p>
                         </div>
                     </form>
