@@ -19,6 +19,7 @@ import InnerCrime from './Components/Home/InnerCrime';
 import Login from './authpages/authLoginPages/Login';
 import Signup from './authpages/authSignUpPages/Signup';
 import ForgetPassword from './authpages/authLoginPages/ForgetPassword';
+import PassVerification from './authpages/authLoginPages/PassVerification';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ function App() {
     <div className="bg-gray-100 min-h-screen">
       {isLoggedIn && <Logo />}
       {isLoggedIn && <Navbar />}
-      {console.log(isLoggedIn)}
+      {/* {console.log(isLoggedIn)} */}
 
       <Routes>
         {isLoggedIn ? (<>
@@ -57,6 +58,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/sign-up" element={<Signup />} />
+          <Route path="/password-verification" element={<PassVerification />} />
           
         </>)}
                 
