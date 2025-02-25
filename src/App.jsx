@@ -59,7 +59,6 @@ function App() {
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/password-verification" element={<PassVerification />} />
-          
         </>)}
                 
       </Routes>
