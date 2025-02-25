@@ -47,7 +47,7 @@ function Navbar() {
             <input
               type="text"
               placeholder="      Search Latest News Updates, Weather, Entertainment & Many More..."
-              className="w-full pl-10 pr-4 py-1 rounded-md text-black border border-gray-300 focus:outline-none focus:border-blue-500"
+              className="md:w-[850px]    pl-10 pr-4 py-1 rounded-md text-black border border-gray-300 focus:outline-none focus:border-blue-500"
             />
           </div>
         </div>
