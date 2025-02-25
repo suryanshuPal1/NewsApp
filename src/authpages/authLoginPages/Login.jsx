@@ -30,16 +30,16 @@ const Login = () => {
         values.password === ""
       ){
         setError ("All field are required");
-      }else{
-        
+      }else{    
         const response = await axios.post("https://news-portal-backend-code-1.onrender.com/api/v1/users/signin", values)
-        // console.log(response.data)
+        console.log(response.data.user)
+        console.log(response?.data?.user?._id)
         alert(response.data.message)
         dispatch(authActions.login())
-        dispatch(authActions.changeRole(response.data.role))
-        localStorage.setItem("id", response.data.id)
-        localStorage.setItem("token", response.data.token)
-        localStorage.setItem("role", response.data.role)
+
+        localStorage.setItem("id", response.data.user._id)
+        localStorage.setItem("role", response.data.user.role)
+
         navigate("/")
       }
       }catch (error) {
