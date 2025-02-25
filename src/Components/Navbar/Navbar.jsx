@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { MdOutlineMenu, MdClose } from 'react-icons/md'; 
 import { IoIosSearch } from 'react-icons/io';
@@ -6,6 +7,7 @@ import { Link } from 'react-router-dom';
 
 
 function Navbar() {
+
   const links = [
     {title: "Budget 2025",
       links: "/budget-2025",
@@ -67,7 +69,7 @@ function Navbar() {
       <div className={`hidden md:flex justify-center gap-8 text-sm font-semibold bg-white p-2`}>
         {links.map(
           (category ,id) => (
-            <Link to={category.links} key={id} className="cursor-pointer hover:text-blue-600">
+              <Link to={category.links} key={id} className="cursor-pointer hover:text-blue-600">
               {category.title}
             </Link>
           )

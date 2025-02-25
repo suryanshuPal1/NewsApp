@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function Logo() {
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
     const currentDate = new Date();
   const options = {
     weekday: 'long',
@@ -17,12 +19,15 @@ export default function Logo() {
           The News 
           <span className='text-xs md:text-md'>{formattedDate}</span>
         </a>
-        <Link to='/log-in'>
-          <button className='absolute right-5 md:right-40 bottom-1/4 md:top-1/2 transform translate-y-1/2
-          bg-gray-500 text-black-500 border-2 border-gray-500 rounded text-xs md:text-sm px-1 md:px-10 py-0 md:py-0.5 h-6 md:h-8'>
-          LogIn
-          </button>
-        </Link>
+        {isLoggedIn && 
+          <Link to='/log-in'>
+            <button className='absolute right-5 md:right-40 bottom-1/4 md:top-1/2 transform translate-y-1/2
+            bg-gray-500 text-black-500 border-2 border-gray-500 rounded text-xs md:text-sm px-1 md:px-10 py-0 md:py-0.5 h-6 md:h-8'>
+            LogIn
+            </button>
+          </Link>
+        }
+        
         
       </div>
       </div>
