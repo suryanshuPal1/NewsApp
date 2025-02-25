@@ -56,11 +56,9 @@ function App() {
           <Route path="/log-in" element={<Login />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/sign-up" element={<Signup />} />
+          
         </>)}
-        
-
-        {/* Other Pages */}
-        
+                
       </Routes>
 
       {/* Hide Footer when on Login Page */}
