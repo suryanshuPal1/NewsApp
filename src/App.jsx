@@ -1,4 +1,7 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
+import {useDispatch,useSelector} from "react-redux"
+import { useEffect } from 'react';
+
 import Navbar from './Components/Navbar/Navbar';
 import Logo from './Components/Logo/Logo';
 import Footer from './Components/Footer/Footer';
@@ -15,38 +18,53 @@ import Crime from './Components/Home/Crime';
 import InnerCrime from './Components/Home/InnerCrime';
 import Login from './authpages/authLoginPages/Login';
 import Signup from './authpages/authSignUpPages/Signup';
+import ForgetPassword from './authpages/authLoginPages/ForgetPassword';
 
 function App() {
-  const location = useLocation(); // Get current route
-  
-  const isLoginPage = location.pathname === "/log-in"; // if login page is on
+  const dispatch = useDispatch();
+    const isLoggedIn = useSelector((state) => state.auth.isLoggedIn)
+  const role = useSelector((state) => state.auth.role) 
+  useEffect(()=>{
+    if(
+      localStorage.getItem("id") &&
+      localStorage.getItem("token")&&
+      localStorage.getItem("role") 
+    ){
+      dispatch(authActions.login());
+      dispatch(authActions.changeRole(localStorage.getItem("role")));
+    }
+  },[]) 
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      {!isLoginPage && <Logo />}
-      {!isLoginPage && <Navbar />}
+      {isLoggedIn && <Logo />}
+      {isLoggedIn && <Navbar />}
+      {console.log(isLoggedIn)}
 
       <Routes>
-        {/* Login Page */}
-        <Route path="/log-in" element={<Login />} />
-        <Route path="/sign-up" element={<Signup />} />
-
-        {/* Other Pages */}
-        <Route path="/" element={<MainHomePage />} />
-        <Route path="/technology" element={<Technology />} />
-        <Route path="/daily-report" element={<DailyReport />} />
-        <Route path="/editor-pack" element={<EditorPack />} />
-        <Route path="/most-read" element={<MostRead />} />
-        <Route path="/top-news" element={<TopNews />} />
-        <Route path="/crime" element={<Crime />} />
-        <Route path="/innercrime" element={<InnerCrime />} />
-        <Route path="/budget-2025" element={<Budget />} />
+        {isLoggedIn ? (<>
+          <Route path="/" element={<MainHomePage />} />
+          <Route path="/technology" element={<Technology />} />
+          <Route path="/daily-report" element={<DailyReport />} />
+          <Route path="/editor-pack" element={<EditorPack />} />
+          <Route path="/most-read" element={<MostRead />} />
+          <Route path="/top-news" element={<TopNews />} />
+          <Route path="/crime" element={<Crime />} />
+          <Route path="/innercrime" element={<InnerCrime />} />
+          <Route path="/budget-2025" element={<Budget />} />
+        </>):(<>
+          <Route path="/log-in" element={<Login />} />
+          <Route path="/forget-password" element={<ForgetPassword />} />
+          <Route path="/sign-up" element={<Signup />} />
+          
+        </>)}
+                
       </Routes>
 
       {/* Hide Footer when on Login Page */}
-      {!isLoginPage && <Footer />}
+      {isLoggedIn && <Footer />}
 
-      <Signup/>
+      {/* <Signup/> */}
     </div>
   );
 }
