@@ -9,6 +9,7 @@ const ForgetPassword = () => {
             <div className="bg-white rounded-lg shadow-lg border border-[#878787] border-zinc-400 m-4 p-1">
                 <div className="p-6 space-y-4 sm:p-8">
                     <p className='py-2 text-xl text-[#282828]'>Welcome back !</p>
+
                         <h1 className="text-xl mb-1 font-semibold md:text-2xl">
                               Forget Password 
                         </h1>
@@ -16,8 +17,8 @@ const ForgetPassword = () => {
                         to receive password reset link</p>
                         <form className="flex justify-center flex-col" action="#">
                               <div>
-                                  <label for="username" className="block mb-2 text-zinc-800 text-sm font-medium">Enter Email address/Phone Number</label>
-                                  <input type="username" name="username" id="username" 
+                                  <label for="email" className="block mb-2 text-zinc-800 text-sm font-medium">Enter Email address/Phone Number</label>
+                                  <input type="email" name="username" id="email" 
                                   className="border mb-1 border-gray-300  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 border-gray-600  placeholder-gray-400 focus:ring-blue-500  focus:border-blue-500" placeholder="arun1416@gmail.com" required="">
                                   </input>
                               </div>
