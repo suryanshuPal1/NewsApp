@@ -42,3 +42,5 @@ const PassVerification = () => {
 }
 
 export default PassVerification
+
+// https://newsportalbackend-crdw.onrender.com/api/v1/users/reset/:resetToken
