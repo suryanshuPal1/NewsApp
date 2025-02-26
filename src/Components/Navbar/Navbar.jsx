@@ -8,44 +8,37 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
 
-  const links = [
-    {title: "Budget 2025",
-      links: "/budget-2025",
-    },
-    {title: "Crime",
-      links: "/crime",
-    },
-    {title: "Accidents",
-      links: "/accident",
-    },
-    {title: "Sports",
-      links: "/sports",
-    },
-    {title: "Politics",
-      links: "/politics",
-    },
-    {title: "Election",
-      links: "/election",
-    },
-    {title: "Culture",
-      links: "/culture",
-    },
-    {title: "Entertainment",
-      links: "/entertainment",
-    },
-    {title: "International",
-      links: "/international",
-    },
-    {title: "Weather",
-      links: "/weather",
-    },
-  ]
+   const [links, setLinks] = useState([]); // State to store categories from API
   const [isOpen, setIsOpen] = useState(false); // State for hamburger menu
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch('https://news-portal-backend-code-1.onrender.com/api/v1/categories/');
+        if (!response.ok) {
+          throw new Error('Failed to fetch categories');
+        }
+        const data = await response.json();
+        
+        // Check if data has a 'categories' property
+        if (data.categories) {
+          setLinks(data.categories.map(category => ({
+            title: category.name,
+            links: `/category/${category.name.toLowerCase()}`,
+          })));
+        } else {
+          console.error('Expected categories in response:', data);
+        }
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+    fetchCategories();
+  }, []);
   return (
     <div className='relative h-15 md:h-20 bg-white shadow-md'>
       <div className='flex justify-between md:justify-center  items-center mx-auto px-4'>
@@ -66,25 +59,21 @@ function Navbar() {
         </div>
       </div>
       {/* Desktop Navigation Links */}
-      <div className={`hidden md:flex justify-center gap-8 text-sm font-semibold bg-white p-2`}>
-        {links.map(
-          (category ,id) => (
-              <Link to={category.links} key={id} className="cursor-pointer hover:text-blue-600">
-              {category.title}
-            </Link>
-          )
-        )}
+       <div className={`hidden md:flex justify-center gap-8 text-sm font-semibold bg-white p-2`}>
+        {Array.isArray(links) && links.map((category, id) => (
+          <Link to={category.links} key={id} className="cursor-pointer hover:text-blue-600">
+            {category.title}
+          </Link>
+        ))}
       </div>
       {/* Mobile Dropdown Menu */}
       {isOpen && (
         <div className="md:hidden bg-white flex flex-col items-center p-4">
-          {["Budget 2025", "Crime", "Accidents", "Sports", "Politics", "Election", "Culture", "Entertainment", "International", "Weather"].map(
-            (category) => (
-              <span key={category} className="cursor-pointer hover:text-blue-600 py-2">
-                {category}
-              </span>
-            )
-          )}
+          {Array.isArray(links) && links.map((category, id) => (
+            <Link to={category.links} key={id} className="cursor-pointer hover:text-blue-600 py-2">
+              {category.title}
+            </Link>
+          ))}
         </div>
       )}
     </div>
