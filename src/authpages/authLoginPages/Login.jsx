@@ -33,8 +33,8 @@ const Login = () => {
         setError ("All field are required");
       }else{    
         const response = await axios.post("https://newsportalbackend-crdw.onrender.com/api/v1/users/signin", values)
-        console.log(response.data.user)
-        console.log(response?.data?.user?._id)
+        // console.log(response.data.user)
+        // console.log(response?.data?.user?._id)
         alert(response.data.message)
         dispatch(authActions.login())
 
@@ -64,7 +64,7 @@ const Login = () => {
                               <label htmlFor="username" className="block mb-2 text-zinc-800 text-sm font-medium">Username</label>
                               <input type="username" name="username" id="username" 
                               value={values.username} onChange={change}
-                              className="border border-gray-300  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 border-gray-600  placeholder-gray-400 focus:ring-blue-500  focus:border-blue-500" placeholder="Enter your username" required="">
+                              className="border rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 border-gray-600  placeholder-gray-400 focus:ring-blue-500  focus:border-blue-500" placeholder="Enter your username" required="">
                               </input>
                           </div>
                           <div className='mb-2'>
@@ -98,7 +98,7 @@ const Login = () => {
                                     </input>
                                   </div>
                                   <div className="ml-3 text-xs ">
-                                    <label for="remember " >Remember me</label>
+                                    <label htmlFor="remember " >Remember me</label>
                                   </div>
                               </div>
                               <Link to='/forget-password' className="text-xs font-medium text-zinc-400 hover:underline">Forgot password?</Link>

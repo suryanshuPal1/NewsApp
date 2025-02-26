@@ -32,7 +32,7 @@ export default function Logo() {
   return (
       <div className='h-40 mx-auto'>
     <div className='relative flex items-center justify-center w-full h-full px-2 bg-blue-900 text-white'>
-        <a href="#" className='flex flex-col items-center justify-center font-semibold text-4xl md:text-6xl' style={{ fontFamily: 'Rozha One' }}>
+        <a href="/" className='flex flex-col items-center justify-center font-semibold text-4xl md:text-6xl' style={{ fontFamily: 'Rozha One' }}>
           The News 
           <span className='text-xs md:text-md'>{formattedDate}</span>
         </a>
