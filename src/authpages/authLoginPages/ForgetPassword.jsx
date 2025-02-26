@@ -30,9 +30,9 @@ const ForgetPassword = () => {
        return
     }
     else{
-      const response = await axios.post("https://news-portal-backend-code-1.onrender.com/api/v1/users/reset", values)
+      const response = await axios.post("https://newsportalbackend-crdw.onrender.com/api/v1/users/reset", values)
       console.log(response)
-      // alert(response.data.message)
+      alert(response.data.message)
 
       localStorage.setItem("email", values?.email)
       navigate("/password-verification")
