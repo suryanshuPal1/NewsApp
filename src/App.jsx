@@ -42,7 +42,7 @@ function App() {
   return (
     <div className="bg-gray-100 min-h-screen">
       {isLoggedIn && <Logo />}
-      {isLoggedIn && <Navbar />}
+      {/* {isLoggedIn && <Navbar />} */}
       {/* {console.log(isLoggedIn)} */}
 
       <Routes>
@@ -61,7 +61,7 @@ function App() {
         </>):(<>
           <Route path="/log-in" element={<Login />} />
           {isLoggedIn === false && <Route path="/" element={<Login />} /> }
-          <Route path="/forget-password" element={<ForgetPassword />} />
+          <Route path="/forget-password" element={<ForgetPassword />} />.........
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/password-verification" element={<PassVerification />} />
         </>)}
