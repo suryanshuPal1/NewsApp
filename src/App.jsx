@@ -19,6 +19,9 @@ import InnerCrime from './Components/Home/InnerCrime';
 import Login from './authpages/authLoginPages/Login';
 import Signup from './authpages/authSignUpPages/Signup';
 import ForgetPassword from './authpages/authLoginPages/ForgetPassword';
+import Email from './authpages/authSignUpPages/Email';
+import Verify from './authpages/authSignUpPages/Verify';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -59,6 +62,9 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/sign-up" element={<Signup />} />
+          <Route path="/verify" element={<Verify/>}/>
+          <Route path="/email" element={<Email/>}/>
+          
           
         </>)}
                 
