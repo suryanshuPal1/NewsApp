@@ -1,8 +1,33 @@
-import React from 'react'
+import React ,{ useState } from 'react'
 import passVeri from '../../assets/loginPageImages/pass.png'
+import axios from 'axios';
 
 
 const PassVerification = () => {
+    const [resetToken,setResetToken] = useState("");
+
+    const change = (e) => {
+        const token = e.target
+        setResetToken(token)
+    }
+
+    const submit = async () => {
+        try {
+            if(resetToken === ''){
+                alert('enter otp')
+            }else{
+                const response = await axios.post(`https://newsportalbackend-crdw.onrender.com/api/v1/users/reset/:${resetToken}`)
+                console.log(response)
+            }
+            
+            
+        } catch (error) {
+            alert(error.response?.data?.message || "Something went wrong!");
+        }
+    }
+
+
+
   return (
     <div className='flex w-[100%] flex-col-reverse items-center justify-center md:flex-row md:flex lg:h-screen md:h-screen h-full'>
         <div className="bg-white rounded-lg shadow-lg border border-[#878787] border-zinc-400 m-4 p-1">
@@ -14,10 +39,10 @@ const PassVerification = () => {
                     <p className='text-sm text-[#282828]'>
                         A verification code has been sent to your email for password change.
                     </p>
-                    <form className="flex justify-center flex-col" action="#">
+                    <form className="flex justify-center flex-col" onSubmit={submit}>
                         <div>
                             <label for="otp" className="block mb-2 text-zinc-800 text-sm font-medium">Enter your Verification Code</label>
-                            <input type="otp" name="otp" id="otp" 
+                            <input type="otp" name="otp" id="otp" onChange={change} value={resetToken}
                             className="border mb-1 border-gray-300  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 border-gray-600  placeholder-gray-400 focus:ring-blue-500  focus:border-blue-500" placeholder="459212" required="">
                             </input>
                         </div>
