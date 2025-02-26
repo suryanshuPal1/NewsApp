@@ -60,7 +60,7 @@ function App() {
           <Route path="/trending-topics" element={<TrendingTopics />} />
         </>):(<>
           <Route path="/log-in" element={<Login />} />
-          <Route path="/" element={<Login />} />
+          {isLoggedIn === false && <Route path="/" element={<Login />} /> }
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/sign-up" element={<Signup />} />
           <Route path="/password-verification" element={<PassVerification />} />
