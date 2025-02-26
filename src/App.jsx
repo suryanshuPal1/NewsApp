@@ -46,7 +46,7 @@ function App() {
   return (
     <div className="bg-gray-100 min-h-screen">
       {isLoggedIn && <Logo />}
-      {/* {isLoggedIn && <Navbar />} */}
+      {isLoggedIn && <Navbar />}
       {/* {console.log(isLoggedIn)} */}
 
       <Routes>

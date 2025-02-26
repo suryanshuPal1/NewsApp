@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { MdOutlineMenu, MdClose } from 'react-icons/md'; 
@@ -23,6 +23,7 @@ function Navbar() {
           throw new Error('Failed to fetch categories');
         }
         const data = await response.json();
+        console.log(response)
         
         // Check if data has a 'categories' property
         if (data.categories) {
