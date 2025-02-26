@@ -1,4 +1,9 @@
-import React, { useState, useEffect } from 'react';
+
+
+
+import React, { useState ,useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 import { FaRegUserCircle } from 'react-icons/fa';
 import { MdOutlineMenu, MdClose } from 'react-icons/md'; 
 import { IoIosSearch } from 'react-icons/io';
