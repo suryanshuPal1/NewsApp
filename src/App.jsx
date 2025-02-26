@@ -10,7 +10,7 @@ import Budget from './Components/Home/Budget';
 import Technology from './PagesOfHome/Technology';
 
 import './App.css';
-import DailyReport from './PagesOfHome/DailyReport';
+import DailyReports from './Pages/SubDomain/DailyReports';
 import EditorPack from './PagesOfHome/EditorPack';
 import MostRead from './PagesOfHome/MostRead';
 import TopNews from './PagesOfHome/TopNews';
@@ -19,8 +19,6 @@ import InnerCrime from './Components/Home/InnerCrime';
 import Login from './authpages/authLoginPages/Login';
 import Signup from './authpages/authSignUpPages/Signup';
 import ForgetPassword from './authpages/authLoginPages/ForgetPassword';
-import Email from './authpages/authSignUpPages/Email';
-import Verify from './authpages/authSignUpPages/Verify';
 
 function App() {
   const dispatch = useDispatch();
@@ -41,35 +39,26 @@ function App() {
     <div className="bg-gray-100 min-h-screen">
       {isLoggedIn && <Logo />}
       {isLoggedIn && <Navbar />}
-      {console.log(isLoggedIn)}
+      {/* {console.log(isLoggedIn)} */}
 
       <Routes>
         {isLoggedIn ? (<>
           <Route path="/" element={<MainHomePage />} />
           <Route path="/technology" element={<Technology />} />
-          <Route path="/daily-report" element={<DailyReport />} />
+          <Route path="/daily-report" element={<DailyReports />} />
           <Route path="/editor-pack" element={<EditorPack />} />
           <Route path="/most-read" element={<MostRead />} />
           <Route path="/top-news" element={<TopNews />} />
           <Route path="/crime" element={<Crime />} />
           <Route path="/innercrime" element={<InnerCrime />} />
           <Route path="/budget-2025" element={<Budget />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/trending-topics" element={<TrendingTopics />} />
         </>):(<>
           <Route path="/log-in" element={<Login />} />
           <Route path="/" element={<Login />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/sign-up" element={<Signup />} />
-          <Route path="/email" element={<Email />} />
-          <Route path="/verify" element={<Verify/>} />
-
-
-          
-
-        
-
-          
-          
-
           
         </>)}
                 

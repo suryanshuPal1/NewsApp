@@ -1,7 +1,19 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 import GooglePlay from "../../assets/Footer/google.png";
 import AppStore from "../../assets/Footer/apple.png";
+
+
+
+const links = [
+  { name: "Contact Us", path: "/contactus" },
+  { name: "About Us", path: "/about-us" },
+  { name: "Advertise With Us", path: "/advertise" },
+  { name: "Privacy & Cookies Notice", path: "/privacy" },
+  { name: "Complaint Redressal", path: "/complaint" },
+  { name: "Trending Topics", path: "/trending-topics" },
+];
 
 export default function Footer() {
   return (
@@ -117,12 +129,14 @@ export default function Footer() {
 
       {/** Footer Links **/}
       <div className="container mx-auto px-6 py-4 border-t border-blue-800 text-center md:text-left">
-        <ul className="flex flex-wrap justify-center md:justify-start gap-4">
-          {["Contact Us", "About Us", "Advertise With Us", "Privacy & Cookies Notice", "Complaint Redressal"].map((item, i) => (
-            <li key={i} className="hover:text-white cursor-pointer">{item}</li>
-          ))}
-        </ul>
-      </div>
+      <ul className="flex flex-wrap justify-center md:justify-start gap-4">
+        {links.map((item, i) => (
+          <li key={i} className="hover:text-white cursor-pointer">
+            <Link to={item.path}>{item.name}</Link>
+          </li>
+        ))}
+      </ul>
+    </div>
     </footer>
   );
 }
