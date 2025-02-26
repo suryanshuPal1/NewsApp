@@ -32,7 +32,7 @@ const Login = () => {
       ){
         setError ("All field are required");
       }else{    
-        const response = await axios.post("https://news-portal-backend-code-1.onrender.com/api/v1/users/signin", values)
+        const response = await axios.post("https://newsportalbackend-crdw.onrender.com/api/v1/users/signin", values)
         console.log(response.data.user)
         console.log(response?.data?.user?._id)
         alert(response.data.message)
