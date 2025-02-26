@@ -20,6 +20,11 @@ import InnerCrime from './Components/Home/InnerCrime';
 import Login from './authpages/authLoginPages/Login';
 import Signup from './authpages/authSignUpPages/Signup';
 import ForgetPassword from './authpages/authLoginPages/ForgetPassword';
+import PassVerification from './authpages/authLoginPages/PassVerification';
+import Email from './authpages/authSignUpPages/Email';  
+import Verify from './authpages/authSignUpPages/Verify';
+import AboutUs from './Pages/AboutUs';
+import TrendingTopics from './Pages/TrendingTopics';
 
 function App() {
   const dispatch = useDispatch();
