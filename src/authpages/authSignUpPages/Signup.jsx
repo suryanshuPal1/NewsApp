@@ -1,110 +1,168 @@
-import React ,{useState} from "react";
-import { Link } from "react-router-dom";
-// import loginImg from '../../assets/loginPageImages/loginImg.png'
-import  EyeIcon from '../../assets/loginPageImages/eye-open.png'
-import  EyeOffIcon from '../../assets/loginPageImages/eye.png'
-import panaLogo from "../../assets/SignuppageImages/pana.png"; // Ensure correct path
+import React, { useState } from "react";
+import axios from "axios";
+import EyeIcon from '../../assets/loginPageImages/eye-open.png';
+import EyeOffIcon from '../../assets/loginPageImages/eye.png';
+import panaLogo from "../../assets/SignuppageImages/pana.png";
 
 const Signup = () => {
-    const [showPassword, setShowPassword] = useState(false); 
-  return (
-    <div className='flex w-[100%] flex-col-reverse items-center justify-center md:flex-row md:flex h-full'>
-            
-            <div className="lg:min-w-100 bg-white rounded-lg min-w- shadow-lg border border-[#878787] border-zinc-400 m-4 p-1">
-                <div className="p-6 space-y-4 sm:p-8">
-                    <p className='py-2 text-xl text-[#282828]'>Welcome</p>
-                        <h1 className="text-xl mb-1 font-semibold md:text-2xl">
-                              Sign up 
-                        </h1>
-                        <p className='text-sm text-[#282828]'>Join us today! Get the latest news at your fingertips.</p>
-                        <form className="flex justify-center flex-col" action="#">
-                              <div className='lg:mb-6 mb-[6%]'>
-                                  <label for="email" className="block mb-2 text-zinc-800 text-sm font-medium">Email</label>
-                                  <input type="email" name="username" id="email" 
-                                  className="border border-gray-300  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 border-gray-600  placeholder-gray-400 focus:ring-blue-500  focus:border-blue-500" placeholder="Enter your email" required="">
-                                  </input>
-                              </div>
-                              <div className='lg:mb-6 mb-[6%]'>
-                                  <label for="username" className="block mb-2 text-zinc-800 text-sm font-medium">Username</label>
-                                  <input type="username" name="username" id="username" 
-                                  className="border border-gray-300  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 border-gray-600  placeholder-gray-400 focus:ring-blue-500  focus:border-blue-500" placeholder="Enter your username" required="">
-                                  </input>
-                              </div>
-                              <div className='mb-2'>
-                                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-800">
-                                        Password
-                                  </label>
-                                    <div className="relative">
-                                      <input
-                                        type={showPassword ? "text" : "password"}
-                                        name="password"
-                                        id="password"
-                                         className="border border-gray-300 rounded-lg w-full p-2.5 pr-10 focus:ring-blue-500 focus:border-blue-500"
-                                        placeholder="Enter your password"
-                                        required
-                                      />
-                                     
-                                      <button
-                                         type="button"
-                                         onClick={() => setShowPassword(!showPassword)}
-                                         className="absolute inset-y-0 right-3 flex items-center text-gray-500"
-                                      >
-                                         {showPassword ? <img src={EyeOffIcon} className="w-6" /> : <img src={EyeIcon} className="w-6" />}
-                                      </button>
-                                    </div>
-                              </div> 
-                              <div className='mb-2'>
-                                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-800">
-                                        Confirm Password
-                                  </label>
-                                    <div className="relative">
-                                      <input
-                                        type={showPassword ? "text" : "password"}
-                                        name="password"
-                                        id="password"
-                                         className="border border-gray-300 rounded-lg w-full p-2.5 pr-10 focus:ring-blue-500 focus:border-blue-500"
-                                        placeholder="Confirm your password"
-                                        required
-                                      />
-                                     
-                                      <button
-                                         type="button"
-                                         onClick={() => setShowPassword(!showPassword)}
-                                         className="absolute inset-y-0 right-3 flex items-center text-gray-500"
-                                      >
-                                         {showPassword ? <img src={EyeOffIcon} className="w-6" /> : <img src={EyeIcon} className="w-6" />}
-                                      </button>
-                                    </div>
-                              </div> 
-                              <div className="flex items-center justify-between">
-                                  <div className="flex items-start ">
-                                      <div className="flex items-center h-5">
-                                        <input id="remember" aria-describedby="remember" type="checkbox" 
-                                        className="w-4 h-4 border rounded focus:ring-3 focus:ring-primary-300 border-gray-600  focus:ring-primary-600  ring-offset-gray-800" required="">
-                                        </input>
-                                      </div>
-                                      <div className="ml-3 text-xs ">
-                                        <label for="remember " >Remember me</label>
-                                      </div>
-                                  </div>
-                                  <Link to='/forget-password' className="text-xs font-medium text-zinc-400 hover:underline">Forgot password?</Link>
-                            </div>
-                            <button type="submit" className="my-4 lg:mb-6 md:mb-3 mb-2 w-full text-white bg-[#101450] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800">Login</button>
-                            <div>
-                            <p className="text-sm font-light text-black flex justify-center border">
-                                  Already have an Account ? <Link to='/log-in' className="font-medium hover:underline text-[#101450] "> login</Link>
-                            </p>
-                            </div>
-                        </form>
-                  </div>
-            </div>
+    const [showPassword, setShowPassword] = useState(false);
+    const [formData, setFormData] = useState({
+        username: "",
+        email: "",
+        phone: "",
+        password: "",
+        confirmPassword: ""
+    });
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [successMessage, setSuccessMessage] = useState("");
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+    console.log(formData.username)
+
     
-            <div className='m-4'>
-              <img src={panaLogo} alt="" className='size-70'/>
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setError(null);
+        setSuccessMessage("");
+
+        axios.post(
+            "https://newsportalbackend-crdw.onrender.com/api/users/signup",
+            formData
+        )
+        .then((response) => {
+          
+            setSuccessMessage(response.data.message);
+            setFormData({
+                username: "",
+                email: "",
+                phone: "",
+                password: "",
+                confirmPassword: ""
+            });
+        })
+        .catch((err) => {
+            setError(err.response?.data?.message || "Something went wrong!");
+        })
+        .finally(() => {
+            setLoading(false);
+        });
+    };
+
+    return (
+        <div className="flex w-full flex-col-reverse items-center justify-center md:flex-row h-full">
+            <div className="lg:min-w-100 bg-white rounded-lg shadow-lg border border-gray-400 m-4 p-1">
+                <div className="p-6 space-y-4 sm:p-8">
+                    <p className="py-2 text-xl text-gray-800">Welcome</p>
+                    <h1 className="text-xl mb-1 font-semibold md:text-2xl">Sign up</h1>
+                    <p className="text-sm text-gray-800">Join us today! Get the latest news at your fingertips.</p>
+                    
+                    {error && <p className="text-red-500 text-sm">{error}</p>}
+
+                    {successMessage && <p className="text-green-500 text-sm">{successMessage}</p>}
+                    
+                    <form className="flex flex-col" onSubmit={handleSubmit}>
+                        <div className="mb-4">
+                            <label className="block mb-2 text-sm font-medium">Username</label>
+                            <input
+                                type="text"
+                                name="username"
+                                value={formData.username}
+                                onChange={handleChange}
+                                className="border border-gray-300 rounded-lg w-full p-2.5"
+                                placeholder="Enter your username"
+                                required
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block mb-2 text-sm font-medium">Email</label>
+                            <input
+                                type="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                className="border border-gray-300 rounded-lg w-full p-2.5"
+                                placeholder="Enter your email"
+                                required
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block mb-2 text-sm font-medium">Phone</label>
+                            <input
+                                type="tel"
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleChange}
+                                className="border border-gray-300 rounded-lg w-full p-2.5"
+                                placeholder="Enter your phone number"
+                                required
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block mb-2 text-sm font-medium">Password</label>
+                            <div className="relative">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    name="password"
+                                    value={formData.password}
+                                    onChange={handleChange}
+                                    className="border border-gray-300 rounded-lg w-full p-2.5 pr-10"
+                                    placeholder="Enter your password"
+                                    required
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="absolute inset-y-0 right-3 flex items-center text-gray-500"
+                                >
+                                    {showPassword ? <img src={EyeOffIcon} className="w-6" /> : <img src={EyeIcon} className="w-6" />}
+                                </button>
+                            </div>
+                        </div>
+                        <div className="mb-4">
+                            <label className="block mb-2 text-sm font-medium">Confirm Password</label>
+                            <div className="relative">
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    name="confirmPassword"
+                                    value={formData.confirmPassword}
+                                    onChange={handleChange}
+                                    className="border border-gray-300 rounded-lg w-full p-2.5 pr-10"
+                                    placeholder="Confirm your password"
+                                    required
+                                />
+                                <button
+                                    type="button"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                    className="absolute inset-y-0 right-3 flex items-center text-gray-500"
+                                >
+                                    {showPassword ? <img src={EyeOffIcon} className="w-6" /> : <img src={EyeIcon} className="w-6" />}
+                                </button>
+                            </div>
+                        </div>
+
+                        <button
+                            type="submit"
+                            className="my-4 w-full text-white bg-[#101450] font-medium rounded-lg text-sm px-5 py-2.5"
+                            disabled={loading}
+                        >
+                            {loading ? "Signing up..." : "Sign Up"}
+                        </button>
+
+                        <p className="text-sm font-light text-black flex justify-center border">
+                            Already have an account? <a href="#" className="font-medium hover:underline text-[#101450]"> Login</a>
+                        </p>
+                    </form>
+                </div>
             </div>
-            
-    </div>
-  );
+            <div className="m-4">
+                <img src={panaLogo} alt="" className="size-70" />
+            </div>
+        </div>
+    );
 };
 
 export default Signup;
