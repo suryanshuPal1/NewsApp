@@ -12,7 +12,7 @@ const PassVerification = () => {
             <div className="p-6 space-y-4 sm:p-8">
                 <p className='py-2 text-xl text-[#282828]'>Welcome back !</p>
                     <h1 className="text-xl mb-1 font-semibold md:text-2xl">
-                        Verification Code Sent!
+                        Reset link Sent!
                     </h1>
                     <p className='text-sm text-[#282828]'>
                         A reset link is sent to your register email
