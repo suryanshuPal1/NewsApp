@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import axios from "axios";
 import editLogo from "../../assets/signUpPageImages/edit.png";
 import mailLogo from "../../assets/signUpPageImages/mail.png";
+import { useNavigate } from "react-router-dom";
 
 
 const Verify = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+  const valid = useNavigate();
+  function gotoemail(){
+    valid("/email")
+  }
+
 
   const sendOtp = (email) => {
     if (!email) {
@@ -22,6 +28,8 @@ const Verify = () => {
       .post("https://newsportalbackend-crdw.onrender.com/api/otp/send-otp", { email })
       .then((response) => {
         setMessage(response.data.message);
+
+      
 
       })
       .catch((error) => {
@@ -71,7 +79,7 @@ const Verify = () => {
         Make sure you have access to your email to receive the code.
       </p>
 
-      <button className="mt-10 w-full max-w-sm bg-[#1C2059] text-white py-2 rounded-lg">
+      <button className="mt-10 w-full max-w-sm bg-[#1C2059] text-white py-2 rounded-lg" onClick={gotoemail}>
         Continue
       </button>
 

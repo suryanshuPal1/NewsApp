@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import undrawLogo from "../../assets/signUpPageImages/undraw.png";
 
-const Email = (props) => {
+const Email = () => {
     const [otp, setOtp] = useState("");
     const [message, setMessage] = useState("");
     const [error, setError] = useState("");
