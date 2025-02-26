@@ -49,6 +49,7 @@ const ForgetPassword = () => {
               {error}
                 <div className="p-6 space-y-4 sm:p-8">
                     <p className='py-2 text-xl text-[#282828]'>Welcome back !</p>
+
                         <h1 className="text-xl mb-1 font-semibold md:text-2xl">
                           Forget Password 
                         </h1>
@@ -56,10 +57,16 @@ const ForgetPassword = () => {
                         to receive password reset link</p>
                         <form className="flex justify-center flex-col"  onSubmit={(e)=>submit(e)}>
                               <div>
+<<<<<<< HEAD
+                                  <label for="email" className="block mb-2 text-zinc-800 text-sm font-medium">Enter Email address/Phone Number</label>
+                                  <input type="email" name="username" id="email" 
+                                  className="border mb-1 border-gray-300  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 border-gray-600  placeholder-gray-400 focus:ring-blue-500  focus:border-blue-500" placeholder="arun1416@gmail.com" required="">
+=======
                                   <label for="username" className="block mb-2 text-zinc-800 text-sm font-medium">Enter Email address/Phone Number</label>
                                   <input type="email" name='email' id='email' value={values.email} 
                                     onChange={change}
                                   className="border mb-1 border-gray-300  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 border-gray-600  placeholder-gray-400 focus:ring-blue-500  focus:border-blue-500" placeholder="arun1416@gmail.com" required>
+>>>>>>> c4e61870c4d0edf1891f9818b1b5940f444f3dc4
                                   </input>
                               </div>
                             <div className="flex items-center justify-end mb-1.5 lg:mb-5 md:mb-2.5">
