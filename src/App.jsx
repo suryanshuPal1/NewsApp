@@ -1,30 +1,31 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from 'react';
+import { useEffect } from "react";
+import { authActions } from "./store/auth"; 
 
-import { authActions } from './store/auth'; 
+import Navbar from "./Components/Navbar/Navbar";
+import Logo from "./Components/Logo/Logo";
+import Footer from "./Components/Footer/Footer";
+import MainHomePage from "./Pages/MainHomePage";
+import Budget from "./Components/Home/Budget";
+import Technology from "./PagesOfHome/Technology";
 
-import Navbar from './Components/Navbar/Navbar';
-import Logo from './Components/Logo/Logo';
-import Footer from './Components/Footer/Footer';
-import MainHomePage from './Pages/MainHomePage';
-import Budget from './Components/Home/Budget';
-import Technology from './PagesOfHome/Technology';
+import "./App.css";
+import DailyReports from "./Pages/SubDomain/DailyReports";
+import EditorPack from "./PagesOfHome/EditorPack";
+import MostRead from "./PagesOfHome/MostRead";
+import TopNews from "./PagesOfHome/TopNews";
+import Crime from "./Components/Home/Crime";
+import InnerCrime from "./Components/Home/InnerCrime";
+import Login from "./authpages/authLoginPages/Login";
+import Signup from "./authpages/authSignUpPages/Signup";
+import ForgetPassword from "./authpages/authLoginPages/ForgetPassword";
+import PassVerification from "./authpages/authLoginPages/PassVerification"; 
+import Email from "./authpages/authSignUpPages/Email";  
+import Verify from "./authpages/authSignUpPages/Verify";
 
-import './App.css';
-import DailyReports from './Pages/SubDomain/DailyReports';
-import EditorPack from './PagesOfHome/EditorPack';
-import MostRead from './PagesOfHome/MostRead';
-import TopNews from './PagesOfHome/TopNews';
-import Crime from './Components/Home/Crime';
-import InnerCrime from './Components/Home/InnerCrime';
-import Login from './authpages/authLoginPages/Login';
-import Signup from './authpages/authSignUpPages/Signup';
-import ForgetPassword from './authpages/authLoginPages/ForgetPassword';
-import Email from './authpages/authSignUpPages/Email';
-import Verify from './authpages/authSignUpPages/Verify';
-import AboutUs from './Pages/AboutUs';
-import TrendingTopics from './Pages/TrendingTopics';
+import AboutUs from "./Pages/AboutUs";
+import TrendingTopics from "./Pages/TrendingTopics";
 
 function App() {
   const dispatch = useDispatch();
@@ -32,11 +33,11 @@ function App() {
   const role = useSelector((state) => state.auth.role);
 
   useEffect(() => {
-    const id = localStorage.getItem("id");
+    const userId = localStorage.getItem("id");
     const token = localStorage.getItem("token");
     const storedRole = localStorage.getItem("role");
 
-    if (id && token && storedRole) {
+    if (userId && token && storedRole) {
       dispatch(authActions.login());
       dispatch(authActions.changeRole(storedRole));
     }
@@ -68,8 +69,9 @@ function App() {
             <Route path="/log-in" element={<Login />} />
             <Route path="/forget-password" element={<ForgetPassword />} />
             <Route path="/sign-up" element={<Signup />} />
+            <Route path="/password-verification" element={<PassVerification />} /> 
             <Route path="/verify" element={<Verify />} />
-            <Route path="/email" element={<Email />} />
+            <Route path="/email" element={<Email />} /> 
           </>
         )}
       </Routes>

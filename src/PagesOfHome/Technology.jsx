@@ -6,7 +6,7 @@ const Technology = () => {
   const [budgetdata, setBudgetData] = useState();
   useEffect(() => {
       const fetch = async()=> {
-        const response = await axios.get('https://news-portal-backend-code-a5rg.onrender.com/api/v1/news/getallnews')
+        const response = await axios.get('https://newsportalbackend-crdw.onrender.com/api/v1/news/getallnews')
         console.log(response.data)
         setBudgetData(response.data.news)
       }
