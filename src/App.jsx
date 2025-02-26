@@ -45,6 +45,7 @@ function App() {
         {isLoggedIn ? (<>
           <Route path="/" element={<MainHomePage />} />
           <Route path="/technology" element={<Technology />} />
+          <Route path="/daily-report" element={<DailyReports />} />
           <Route path="/editor-pack" element={<EditorPack />} />
           <Route path="/most-read" element={<MostRead />} />
           <Route path="/top-news" element={<TopNews />} />
@@ -58,7 +59,6 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/forget-password" element={<ForgetPassword />} />
           <Route path="/sign-up" element={<Signup />} />
-          
           <Route path="/password-verification" element={<PassVerification />} />
         </>)}
                 
