@@ -34,7 +34,7 @@ const ForgetPassword = () => {
       console.log(response)
       alert(response.data.message)
 
-      localStorage.setItem("email", values?.email)
+      // localStorage.setItem("email", values?.email)
       navigate("/password-verification")
     }
     }catch (error) {
