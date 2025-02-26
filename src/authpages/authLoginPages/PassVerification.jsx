@@ -1,27 +1,10 @@
 import React ,{ useState } from 'react'
+import { Link } from 'react-router-dom';
 import passVeri from '../../assets/loginPageImages/pass.png'
 import axios from 'axios';
 
 
 const PassVerification = () => {
-    const [resetToken,setResetToken] = useState("");
-
-    const submit = async () => {
-        try {
-            if(resetToken === ''){
-                alert('enter otp')
-            }else{
-                const response = await axios.post(`https://newsportalbackend-crdw.onrender.com/api/v1/users/reset/${resetToken}`)
-                console.log(response)
-            }
-            
-            
-        } catch (error) {
-            alert(error.response?.data?.message || "Something went wrong!");
-        }
-    }
-
-
 
   return (
     <div className='flex w-[100%] flex-col-reverse items-center justify-center md:flex-row md:flex lg:h-screen md:h-screen h-full'>
@@ -32,25 +15,27 @@ const PassVerification = () => {
                         Verification Code Sent!
                     </h1>
                     <p className='text-sm text-[#282828]'>
-                        A verification code has been sent to your email for password change.
+                        A reset link is sent to your register email
                     </p>
-                    <form className="flex justify-center flex-col" onSubmit={submit}>
-                        <div>
+                    <form className="flex justify-center flex-col">
+                        {/* <div>
                             <label for="otp" className="block mb-2 text-zinc-800 text-sm font-medium">Enter your Verification Code</label>
                             <input type="otp" name="otp" id="otp" onChange={(e)=> setResetToken(e.target.value)} value={resetToken}
                             className="border mb-1 border-gray-300  rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 border-gray-600  placeholder-gray-400 focus:ring-blue-500  focus:border-blue-500" placeholder="459212" required="">
                             </input>
-                        </div>
+                        </div> */}
                         <div className="flex items-center justify-end mb-1.5 lg:mb-5 md:mb-2.5">
                         {/* <a href="#" className="text-xs font-medium text-zinc-400 hover:underline">LogIn</a> */}
-                            <p className="text-sm font-light text-gray-500 text-gray-400 flex justify-center">
-                            Go Back to<a href="#" className="pl-1 text-[#101450] font-medium hover:underline">Login</a>
-                            </p>
+                            {/* <p className="text-sm font-light text-gray-500 text-gray-400 flex justify-center">
+                            Go Back to<Link to='/log-in' className="font-medium hover:underline text-[#101450] ">login</Link>
+                            </p> */}
                         </div>
-                        <button type="submit" className="my-4 lg:mb-6 md:mb-3 mb-2 w-full text-white bg-[#101450] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800">Login</button>
+                        <Link to='/log-in' >
+                        <button className="my-4 lg:mb-6 md:mb-3 mb-2 w-full text-white bg-[#101450] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  bg-primary-600  hover:bg-primary-700  focus:ring-primary-800">Continue</button>
+                        </Link>
                         <div>
-                        <p className="text-sm font-light text-gray-500 text-gray-400 flex justify-center">
-                            Don’t have an Account ? <a href="#" className="font-medium hover:underline text-[#101450]">Register</a>
+                        <p className="text-sm font-light flex justify-center">
+                            Don’t have an Account ? <Link to="/sign-up" className="font-medium hover:underline text-[#101450] ">Register</Link>
                         </p>
                         </div>
                     </form>
