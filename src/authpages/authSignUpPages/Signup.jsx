@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import EyeIcon from '../../assets/loginPageImages/eye-open.png';
 import EyeOffIcon from '../../assets/loginPageImages/eye.png';
 import panaLogo from "../../assets/SignuppageImages/pana.png";
@@ -16,6 +18,8 @@ const Signup = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [successMessage, setSuccessMessage] = useState("");
+
+    const navigate = useNavigate()
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -43,6 +47,7 @@ const Signup = () => {
                 password: "",
                 confirmPassword: ""
             });
+            navigate('/log-in')
         })
         .catch((err) => {
             setError(err.response?.data?.message || "Something went wrong!");
@@ -153,7 +158,7 @@ const Signup = () => {
                         </button>
 
                         <p className="text-sm font-light text-black flex justify-center border">
-                            Already have an account? <a href="#" className="font-medium hover:underline text-[#101450]"> Login</a>
+                            Already have an account?<Link to='/log-in' className="font-medium hover:underline text-[#101450] ">login</Link>
                         </p>
                     </form>
                 </div>
