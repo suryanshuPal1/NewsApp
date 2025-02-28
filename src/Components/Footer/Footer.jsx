@@ -13,6 +13,9 @@ const links = [
   { name: "Privacy & Cookies Notice", path: "/privacy" },
   { name: "Complaint Redressal", path: "/complaint" },
   { name: "Trending Topics", path: "/trending-topics" },
+  {name:"Single news", path:"/singlenews"},
+   {name:"NewsList", path:"Newslist"},
+  
 ];
 
 export default function Footer() {
