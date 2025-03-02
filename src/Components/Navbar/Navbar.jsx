@@ -4,10 +4,13 @@ import { FaRegUserCircle } from 'react-icons/fa';
 import { MdOutlineMenu, MdClose } from 'react-icons/md'; 
 import { IoIosSearch } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Navbar() {
   const [links, setLinks] = useState([]); // State to store categories from API
   const [isOpen, setIsOpen] = useState(false); // State for hamburger menu
+  const [input ,setInput] = useState('');
+  console.log(input)
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -16,7 +19,7 @@ function Navbar() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('https://news-portal-backend-code-1.onrender.com/api/v1/categories/');
+        const response = await fetch('https://newsportalbackend-crdw.onrender.com/api/v1/categories/');
         if (!response.ok) {
           throw new Error('Failed to fetch categories');
         }
@@ -39,15 +42,30 @@ function Navbar() {
     fetchCategories();
   }, []);
 
+  const search = async()=>{
+    try {
+      if(input === ''){
+        alert('no result found')
+      }else{
+        const response = await axios.get(`https://newsportalbackend-crdw.onrender.com/api/v1/news/search/${input}`)
+        console.log(response.data)
+      }
+    } catch (error) {
+      
+    }
+  }
+
   return (
     <div className='relative h-15 md:h-20 bg-white shadow-md'>
       <div className='flex justify-between md:justify-center items-center mx-auto px-4'>
         <div className='relative flex items-center justify-between gap-4 p-2'>
           <FaRegUserCircle className='text-2xl' />
-          <IoIosSearch className='absolute left-1/4 transform -translate-x-1/2 text-2xl' />
+          <button className='mb-6' onClick={search}>
+          <IoIosSearch className='text-2xl absolute ml-5'/>
+          </button>
           <div>
             <input
-              type="text"
+              type="text" onChange={(e)=>setInput(e.target.value)} 
               placeholder="Search Latest News Updates, Weather, Entertainment & Many More..."
               className="w-full pl-10 pr-4 py-1 rounded-md text-black border border-gray-300 focus:outline-none focus:border-blue-500"
             />
