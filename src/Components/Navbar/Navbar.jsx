@@ -10,7 +10,7 @@ function Navbar() {
   const [links, setLinks] = useState([]); // State to store categories from API
   const [isOpen, setIsOpen] = useState(false); // State for hamburger menu
   const [input ,setInput] = useState('');
-  console.log(input)
+  // console.log(input)
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
