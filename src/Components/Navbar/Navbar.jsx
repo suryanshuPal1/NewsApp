@@ -10,8 +10,9 @@ import { IoIosSearch } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 
 function Navbar() {
-  const [links, setLinks] = useState([]); // State to store categories from API
-  const [isOpen, setIsOpen] = useState(false); // State for hamburger menu
+  const [links, setLinks] = useState([]); 
+  const [isOpen, setIsOpen] = useState(false); 
+  const [input, setInput] = useState('')
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -60,10 +61,12 @@ function Navbar() {
       <div className='flex justify-between md:justify-center items-center mx-auto px-4'>
         <div className='relative flex items-center justify-between gap-4 p-2'>
           <FaRegUserCircle className='text-2xl' />
-          <IoIosSearch className='absolute left-1/4 transform -translate-x-1/2 text-2xl' />
+          <button className='mb-6' onClick={search}>
+          <IoIosSearch className='text-2xl absolute ml-5'/>
+          </button>
           <div>
             <input
-              type="text"
+              type="text" onChange={(e)=>setInput(e.target.value)} 
               placeholder="Search Latest News Updates, Weather, Entertainment & Many More..."
               className="w-full pl-10 pr-4 py-1 rounded-md text-black border border-gray-300 focus:outline-none focus:border-blue-500"
             />
