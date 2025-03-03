@@ -1,22 +1,36 @@
-
-
-
 import React, { useState ,useEffect } from 'react';
-import { useSelector } from 'react-redux';
-
+import axios from 'axios';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { MdOutlineMenu, MdClose } from 'react-icons/md'; 
 import { IoIosSearch } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 
-function Navbar() {
+function Navbar({getSearchData}) {
   const [links, setLinks] = useState([]); 
   const [isOpen, setIsOpen] = useState(false); 
   const [input, setInput] = useState('')
 
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const search = async()=>{
+    try {
+      if(input === ''){
+        alert('no result found')
+      }else{
+        const response = await axios.get(`https://newsportalbackend-crdw.onrender.com/api/v1/news/search/${input}`)
+        console.log(response.data.news)
+
+        getSearchData(response.data.news)
+      }
+    } catch (error) {
+      alert(error)
+    }
+  }
+
+
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -43,25 +57,14 @@ function Navbar() {
 
     fetchCategories();
   }, []);
-  const search = async()=>{
-    try {
-      if(input === ''){
-        alert('no result found')
-      }else{
-        const response = await axios.get(`https://newsportalbackend-crdw.onrender.com/api/v1/news/search/${input}`)
-        console.log(response.data)
-      }
-    } catch (error) {
-      
-    }
-  }
+  
 
   return (
     <div className='relative h-15 md:h-20 bg-white shadow-md'>
       <div className='flex justify-between md:justify-center items-center mx-auto px-4'>
         <div className='relative flex items-center justify-between gap-4 p-2'>
           <FaRegUserCircle className='text-2xl' />
-          <button className='mb-6' onClick={search}>
+          <button className='mb-6' onClick={search} >
           <IoIosSearch className='text-2xl absolute ml-5'/>
           </button>
           <div>

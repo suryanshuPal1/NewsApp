@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { authActions } from "./store/auth"; 
 
 import Navbar from "./Components/Navbar/Navbar";
@@ -26,11 +26,19 @@ import Verify from "./authpages/authSignUpPages/Verify";
 
 import AboutUs from "./Pages/AboutUs";
 import TrendingTopics from "./Pages/TrendingTopics";
+import Slide2 from "./Components/Card/Slide2";
 
 function App() {
+  const [searchValue, setSearchValue] = useState(null);
+
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const role = useSelector((state) => state.auth.role);
+
+  const handleSearchChildData = (data) => {
+    setSearchValue(data)
+  } 
+  console.log({searchValue})
 
   useEffect(() => {
     const userId = localStorage.getItem("id");
@@ -42,11 +50,15 @@ function App() {
       dispatch(authActions.changeRole(storedRole));
     }
   }, [dispatch]); 
+  
 
   return (
     <div className="bg-gray-100 min-h-screen">
       {isLoggedIn && <Logo />}
-      {isLoggedIn && <Navbar />} 
+      {isLoggedIn && <Navbar getSearchData={handleSearchChildData} />} 
+      {searchValue && searchValue.map((value)=>(
+       <Slide2 img={value.avatar} title={value.catagory} data={value.content} date={value.date}/>
+      ))}
 
       <Routes>
         {isLoggedIn ? (
