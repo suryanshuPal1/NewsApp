@@ -42,6 +42,18 @@ function Navbar() {
 
     fetchCategories();
   }, []);
+  const search = async()=>{
+    try {
+      if(input === ''){
+        alert('no result found')
+      }else{
+        const response = await axios.get(`https://newsportalbackend-crdw.onrender.com/api/v1/news/search/${input}`)
+        console.log(response.data)
+      }
+    } catch (error) {
+      
+    }
+  }
 
   return (
     <div className='relative h-15 md:h-20 bg-white shadow-md'>
