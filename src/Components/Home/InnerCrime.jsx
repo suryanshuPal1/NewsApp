@@ -1,3 +1,6 @@
+import React from 'react';
+import innercrime1 from '../../assets/crime/innercrime1.png';
+
 export default function InnerCrime() {  
   return (  
     <div className="max-w-6xl mx-auto w-full px-10">  
@@ -28,7 +31,7 @@ export default function InnerCrime() {
         {/* Image Section */}  
         <div className="flex-1 min-w-0">  
           <img  
-            src="/images/innercrime1.png"  
+            src={innercrime1} 
             alt="India and Canada flags"  
             className="w-full h-auto object-cover rounded-lg"  
           />  
