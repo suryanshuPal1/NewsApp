@@ -59,7 +59,7 @@ const Login = () => {
                           Sign in to 
                     </h1>
                     <p className='text-sm text-[#282828]'>Welcome back! Stay informed, stay ahead.</p>
-                    <form className="flex justify-center flex-col" action="#"  onSubmit={submit}>
+                    <form className="flex justify-center flex-col" action="#"  onSubmit={(e) => { e.preventDefault(); submit(); }}>
                           <div className='lg:mb-6 mb-[6%]'>
                               <label htmlFor="username" className="block mb-2 text-zinc-800 text-sm font-medium">Username</label>
                               <input type="username" name="username" id="username" 
