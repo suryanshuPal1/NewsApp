@@ -61,7 +61,7 @@ function App() {
       ))}
 
       <Routes>
-        {isLoggedIn ? (
+        {isLoggedIn  ? (
           <>
             <Route path="/" element={<MainHomePage />} />
             <Route path="/technology" element={<Technology />} />
