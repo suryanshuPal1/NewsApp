@@ -9,9 +9,9 @@ import AppStore from "../../assets/Footer/apple.png";
 const links = [
   { name: "Contact Us", path: "/contactus" },
   { name: "About Us", path: "/about-us" },
-  { name: "Advertise With Us", path: "/advertise" },
+  { name: "Advertise With Us", path: "/advertise"},
   { name: "Privacy & Cookies Notice", path: "/privacy" },
-  { name: "Complaint Redressal", path: "/complaint" },
+  { name: "Terms and condition", path: "/termsandcondition" },
   { name: "Trending Topics", path: "/trending-topics" },
 ];
 
