@@ -11,7 +11,7 @@ const TermsAndCondition = () => {
           alt="Terms and Condition"
           className="w-full h-full object-cover"
         />
-         <section className="absolute top-1/2 left-1/2   transform -translate-x-1/2 -translate-y-1/2 w-11/12 md:w-4/5 lg:max-w-4xl mx-auto bg-white p-4 md:p-6 mt-16 md:mt-32 shadow-lg rounded-md">
+         <section className="absolute top-1/2 left-1/2   transform -translate-x-1/2 -translate-y-1/2 w-11/12 md:w-4/5 lg:max-w-4xl mx-auto bg-white p-4 md:p-6 mt-16 md:mt-36 shadow-lg rounded-md text-sm">
               <div>
                 <ul className="list-disc">
                     <li>Our website uses cookies to analyse our website traffic. If you do allow cookies to be used, your personal information may be stored by us for use as provided in our Privacy Policy.</li>
